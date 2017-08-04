@@ -1,1 +1,2 @@
 "# SaleManagement" 
+require+anulaejs+bootstarp
