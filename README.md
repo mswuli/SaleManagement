@@ -1,2 +1,2 @@
 "# SaleManagement" 
-require+anulaejs+bootstarp
+require+anulaejs+bootstarp+node
