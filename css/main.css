@@ -1,0 +1,251 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;;
+}
+div.head{
+    background-color: #18BC9C;
+    height: 100px;
+
+}
+.li_list{
+    list-style: none;
+}
+.head .out{
+    border: 0;
+    height: 30px;
+    width: 40px;
+    background-color: rgba(0, 0, 0, 0);
+    color: black;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: left;
+    padding-left: 5px;
+
+}
+.container-fluid{
+    height: 100%;
+    width: 100%;
+    padding: 0px!important;
+}
+.index{
+    width: 100%;
+    height: 100%;
+}
+.index >div{padding-right: 0;}
+.index_left{
+    display: block;
+    height: 100%;
+    background-color: #303641;
+    padding-top: 40px;
+}
+.r_top{
+    height: 100px;
+}
+.r_main{
+    margin-top: 30px;
+}
+.left_top{
+    height: 100px;
+    width: 100%;
+}
+.left{
+    color: #ffffff;
+}
+.left a:hover{
+    text-decoration: none;
+}
+.left a:link{
+    text-decoration: none;
+}
+.left .nav-header{
+    background:none;
+    border: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-family: "微软雅黑";
+    text-align: left;
+    padding-left: 40px;
+}
+.left .nav-header span.glyphicon.right{
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    float: right;
+    margin-right: 20px;
+}.left .nav-header span.glyphicon.left{
+    margin-right: 5px;
+}
+.glyphicon-menu-right:before{
+    font-size: 10px;
+}
+.glyphicon-hand-right:before {
+    color: rgba(24,188,255,0.7);
+    font-size: 30px;
+}
+.glyphicon-off:before {
+    content: "\e017";
+    line-height: 35px;
+    font-size: 18px;
+    color: black;
+}
+.left .nav-list li a{
+    background: none;
+    border: 0;
+    font-family: "微软雅黑";
+    text-align: left;
+    padding-left: 80px;
+    color:rgba(255,255,255,0.7);
+
+}
+.left_logo{
+    display: block;
+    width:100%;
+    min-width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    background-image: url("../Images/logo1.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100% 100%;
+    border: 2px solid #ffffff;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: rgba(155,128,44,0.5);
+}
+.left_top{
+    clear: none;
+}
+.left_admin{
+    margin-top: 30px;
+}
+.left_admin ul{
+    height: 100%;
+}
+.left_admin ul li{
+    height: 50%;
+    list-style: none;
+    line-height: 40px;
+    font-size: 14px;
+}
+
+.sidebar-menu{
+    border: 0;
+}
+td.table_style_toptd {
+    background-color: rgba(246,146,7,1)!important;
+    color: white;
+    border: 1px solid rgba(246,146,7,1)!important;
+}
+tr#login_bot {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.login_bottom{width:10%;text-align: center;padding-top: 10px;}
+#productTable tr td{
+    text-overflow: ellipsis; /* for IE */
+    -moz-text-overflow: ellipsis; /* for Firefox,mozilla */
+    overflow: hidden;
+    white-space: nowrap;
+}
+#productTable{
+    table-layout: fixed;
+}
+
+.text-center tr{
+    height: 40px;
+}
+
+.text-center tr td span{
+    margin-right: 10px;
+}
+
+.select_td{
+    height: 28px;
+    vertical-align: middle;
+}
+
+.input_sc{
+    width:55%;
+    height: 28px
+}
+
+.modal-dialog{
+    width: 60%
+}
+
+.yyactived {
+    background: #18BC9C;
+}
+
+.noactive {
+    background:#303641;
+}
+.left.row{
+    margin-right: 0px!important;
+}
+.sidebar-menu{
+    margin-right: 0px!important;
+}
+.select_yc{
+    -webkit-appearance:none;
+    border: none;
+    -moz-appearance:none;
+}
+.head_logo{
+    display: block;
+    width: 200px;
+    height: auto;
+    padding-top:20px ;
+}
+.head_right{
+    margin-top:30px;
+    padding-right:35px;
+}
+#line1{
+    background-color: #ffffff;
+    height: 300px;
+}
+#line2{
+    background-color: #ffffff;
+    height: 300px;
+}
+#line3{
+    background-color: #ffffff;
+    height: 300px;
+}
+#line4{
+    background-color: #ffffff;
+    height: 300px;
+}
+@media screen and (max-width: 1600px)  {
+    .left_admin{
+        padding-left: 40px!important;
+    }
+    #line1{
+        background-color: #ffffff;
+        height: 230px;
+    }
+    #line2{
+        background-color: #ffffff;
+        height: 230px;
+    }
+    #line3{
+        background-color: #ffffff;
+        height: 230px;
+    }
+    #line4{
+        background-color: #ffffff;
+        height: 230px;
+    }
+}
+
+.container{
+    margin-top:8%
+}
+.login_sub{margin-top: 30px;}
+.product_star{color: rgba(246,146,7,1)!important;font-weight: bold;}

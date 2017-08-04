@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="row col-lg-12 col-md-12">
+        <div class="col-lg-8 col-md-8">
+            <div class="col-lg-offset-5 col-md-offset-5">
+                <span class="glyphicon glyphicon-thumbs-up" style="font-size:50px;color: #ff2a2a"></span>
+                <span style="font-size: 35px;font-weight:bold">芭欧</span>
+                <hr size="1" style="background-color: #5636ff;height: 1px;border: none">
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-12 col-lg-12">
+        <div class="col-lg-6 col-md-6">
+            <form class="pull-right" name="logForm">
+                <table class="text-center">
+                    <tr>
+                        <td  class="text-right"><span>管理员：</span></td>
+                        <td><input type="text" class="input-sm form-control" ng-model="user.name" placeholder="必填项" required  ng-maxlength="10"></td>
+                    </tr>
+                    <tr>
+                        <td  class="text-right"><span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span></td>
+                        <td><input type="password" class="input-sm form-control" ng-model="user.pwd" placeholder="必填项" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block login_sub" ng-click="login(logForm.$valid)">登录</button>
+                        </td>
+                    </tr>
+                    <!--<tr><td>验证码：</td><td><input type="text" name="" value="" style="width:80px;"/></td></tr>-->
+                </table>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-6">
+            <div>
+               <img src="Images/sm.jpg" style="width: 150px;height: 120px"><br>
+                <span style="font-size: 10px;margin-left: 25px;color: #ffb061">关注上海芭欧微信</span>
+            </div>
+        </div>
+    </div>
+    <div class="row col-lg-12 col-md-12" style="margin-top: 10%">
+        <div class="col-lg-8 col-md-8">
+            <div class="col-lg-offset-5 col-md-offset-5">
+                <hr size="1" style="background-color: rgba(180, 175, 255, 0.43);height: 1px;border: none">
+                <span style="margin-left: 30%">&copy;2015/12/15</span>
+            </div>
+        </div>
+    </div>
+</div>

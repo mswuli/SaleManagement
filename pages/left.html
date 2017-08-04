@@ -1,0 +1,66 @@
+<body>
+<div class="row left">
+    <div class="left_top col-md-12">
+        <div class="col-md-5">
+            <a ui-sref="index" class="left_logo"></a>
+        </div>
+        <div class="left_admin col-md-6 col-md-offset-1">
+            <p>Welcome</p>
+            <p>{{name}}</p>
+        </div>
+    </div>
+    <!-- 左边开始 -->
+    <div class="sidebar-menu col-md-12 row">
+        <a href="javaviod(0);#Product" class="nav-header menu-first collapsed btn-lg btn-block " data-toggle="collapse">
+            <span class="left glyphicon glyphicon-gift"></span>
+            商品栏目
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </a>
+        <ul id="Product" class="nav nav-list collapse menu-second">
+            <li><a ui-sref="index.Product" href=""> 商品管理</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-menu col-md-12 row">
+        <a href="javaviod(0);#Order" class="nav-header menu-first collapsed  btn-lg btn-block" data-toggle="collapse">
+            <span class="left glyphicon glyphicon-file"></span>
+            订单浏览
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </a>
+        <ul id="Order" class="nav nav-list collapse menu-second">
+            <li><a ui-sref="index.Order" href="">订单管理</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-menu col-md-12 row">
+        <a href="javaviod(0);#Venue" class="nav-header menu-first collapsed  btn-lg btn-block" data-toggle="collapse">
+            <span class="left glyphicon glyphicon-home"></span>
+            场馆栏目
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </a>
+        <ul id="Venue" class="nav nav-list collapse menu-second">
+            <li><a ui-sref="index.Venue" href=""> 场馆管理</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-menu col-md-12 row">
+        <a href="javaviod(0);#Coach" class="nav-header menu-first collapsed  btn-lg btn-block" data-toggle="collapse">
+            <span class="left glyphicon glyphicon-thumbs-up"></span>
+            教练栏目
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </a>
+        <ul id="Coach" class="nav nav-list collapse menu-second">
+            <li><a ui-sref="index.Coach" href=""> 教练管理</a></li>
+        </ul>
+    </div>
+    <div class="sidebar-menu col-md-12 row">
+        <a href="javaviod(0);#loginSearch" class="nav-header menu-first collapsed  btn-lg btn-block" data-toggle="collapse">
+            <span class="left glyphicon glyphicon-user"></span>
+            登录栏目
+            <span class="glyphicon glyphicon-menu-right right"></span>
+        </a>
+        <ul id="loginSearch" class="nav nav-list collapse menu-second">
+            <li><a ui-sref="index.loginSearch" href=""> 登录查询</a></li>
+        </ul>
+    </div>
+    <!-- 左边结束 -->
+</div>
+</body>
+</html>

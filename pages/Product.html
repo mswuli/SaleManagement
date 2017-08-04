@@ -1,0 +1,482 @@
+    <body>
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+            <!-- 头部开始 -->
+            <tr>
+                <td width="17" valign="top" background="../Images/mail_left_bg.gif">
+                    <img src="../Images/left_top_right.gif" width="17" height="29" />
+                </td>
+                <td valign="top" background="../Images/content_bg.gif">
+                    <table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" background="../Images/content_bg.gif">
+                        <tr><td height="31"><div class="title">商品管理</div></td></tr>
+                    </table>
+                </td>
+                <td width="16" valign="top" background="../Images/mail_right_bg.gif"><img src="../Images/nav_right_bg.gif" width="16" height="29" /></td>
+            </tr>
+            <!-- 中间部分开始 -->
+            <tr>
+                <!--第一行左边框-->
+                <td valign="middle" background="../Images/mail_left_bg.gif">&nbsp;</td>
+                <!--第一行中间内容-->
+                <td valign="top" bgcolor="#F7F8F9">
+                    <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+                        <!-- 空白行-->
+                        <tr><td colspan="2" valign="top">&nbsp;</td><td>&nbsp;</td><td valign="top">&nbsp;</td></tr>
+                        <tr>
+                            <td colspan="4">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="2%">&nbsp;</td>
+                                        <td width="5%" align="center"><span class="glyphicon glyphicon-hand-right"></span></td>
+                                        <td valign="bottom" width="40%" >
+                                            <select class="select_td" ng-model="name">
+                                                <option value="">请选择</option>
+                                                <option value="id">商品ID</option>
+                                                <option value="name">商品名称</option>
+                                                <option value="description">商品描述</option>
+                                                <option value="activeSTime">活动开始时间</option>
+                                                <option value="recommend">推荐等级</option>
+                                                <option value="on_shelf">上架</option>
+                                            </select>
+                                            <input type="text" class="input_sc" placeholder="请输入搜索内容" ng-model="value">
+                                            <a class="btn btn-info btn-sm" ng-click="load(0)">搜索</a>
+                                        </td>
+                                        <td valign="bottom" width="51%">
+                                            <div class="button_group pull-right">
+                                            <a  href="#addProduct" data-toggle="modal" ng-click="GetProduct(0);GetVenue(0)" class="btn btn-info">增加商品</a>
+                                            <!-- 模态框（Modal）增加信息 -->
+                                            <div class="modal fade" id="addProduct" tabindex="-1" role="dialog"
+                                                 aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <form>
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-hidden="true">
+                                                                &times;
+                                                            </button>
+                                                            <h4 class="modal-title" >
+                                                                增加商品
+                                                            </h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div>
+                                                                <table class="text-center" style="margin: 0px auto;">
+                                                                    <tr>
+                                                                        <td  class="text-right"><span>名称：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required  ng-model="product.name"></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>描述：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control"  ng-model="product.des"></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>推荐等级：</span></td>
+                                                                        <td><select class="input-sm form-control product_star" required ng-model="product.recommend">
+                                                                            <option value="">--请选择--</option>
+                                                                            <option value="1">☆</option>
+                                                                            <option value="2">☆☆</option>
+                                                                            <option value="3">☆☆☆</option>
+                                                                            <option value="4">☆☆☆☆</option>
+                                                                            <option value="5">☆☆☆☆☆</option>
+                                                                        </select></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>数量：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required ng-model="product.stock"></td>
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-right"><span>老价格：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required ng-model="product.originalprice"></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>新价格：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required ng-model="product.price"></td>
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>活动开始日期：</span></td>
+                                                                        <td><input type="date" class="input-sm form-control" placeholder="必填项" required ng-model="product.begintime"></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>活动到期日期：</span></td>
+                                                                        <td><input type="date" class="input-sm form-control" placeholder="必填项" required ng-model="product.endtime"></td>
+
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>商品属性名称：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required ng-model="product.propertyname1"></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>商品属性详情：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control" placeholder="必填项" required ng-model="product.propertyitem1"></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>商品属性名称2：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyname2"></td>
+                                                                        <td></td>
+                                                                        <td class="text-right"><span>商品属性详情2：</span></td>
+                                                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyitem2"></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>上架：</span></td>
+                                                                        <td><select class="input-sm form-control" required ng-model="product.onshelf">
+                                                                            <option value="">--请选择--</option>
+                                                                            <option value="1">是</option>
+                                                                            <option value="0">否</option>
+                                                                        </select></td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td class="text-right"><span>选择场馆：</span></td>
+                                                                        <td>
+                                                                          <select multiple size="5" name="list1" style="width:200px">
+                                                                              <option ng-repeat="venue in Venue" value="{{venue.Id}}">{{venue.Name}}</option>
+                                                                          </select>
+                                                                        </td>
+                                                                        <td valign="bottom" width="100">
+                                                                            <input type="button" value="   >  " ng-click="move($event,1)" name="B1"><br/>
+                                                                            <input type="button" value="   <  " ng-click="move($event,2)" name="B2"><br/>
+                                                                            <input type="button" value="  >>  " ng-click="moveall($event,1)" name="B3"><br/>
+                                                                            <input type="button" value="  <<  " ng-click="moveall($event,2)" name="B4"><br/>
+                                                                        </td>
+                                                                        <td class="text-right"><span>已选场馆：</span></td>
+                                                                        <td>
+                                                                            <select multiple size="5" name="list2" id="list" placeholder="必填项" required style="width:200px">
+                                                                            </select></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default"  data-dismiss="modal">关闭
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary" ng-click="AddProduct()">
+                                                                确认增加
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- 模态框（Modal）增加信息 -->
+                                        </div>
+                                        </td>
+                                        <td width="2%">&nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 一条线 -->
+                        <tr>
+                            <td height="40" colspan="4">
+                                <table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+                                    <tr><td></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <!-- 添加栏目开始 -->
+                        <tr>
+                            <td width="2%">&nbsp;</td>
+                            <td width="96%"  >
+                                <table class="table table-striped table-bordered table-hover table-condensed" id="productTable">
+                                    <tr class="info">
+                                        <td align="center" valign="middle" class="table_style_toptd">商品编号</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">名称</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">描述</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">老价格</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">新价格</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">活动开始时间</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">活动结束时间</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">推荐等级</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">数量</td>
+                                        <td align="center" valign="middle" class="table_style_toptd">上架</td>
+                                        <td align="center" valign="middle" class="table_style_toptd" width="140">操作</td>
+                                    </tr>
+                                    <tr ng-repeat="product in priductList.data">
+                                        <td align="center" valign="middle">{{product.id}}</td>
+                                        <td align="center" valign="middle">{{product.name}}</td>
+                                        <td align="center" valign="middle">{{product.des}}</td>
+                                        <td align="center" valign="middle">{{product.originalprice}}</td>
+                                        <td align="center" valign="middle">{{product.price}}</td>
+                                        <td align="center" valign="middle">{{product.begintime}}</td>
+                                        <td align="center" valign="middle">{{product.endtime}}</td>
+                                        <td align="center" valign="middle"><select ng-model="product.recommend" disabled class="select_yc product_star">
+                                            <option value="1">☆</option>
+                                            <option value="2">☆☆</option>
+                                            <option value="3">☆☆☆</option>
+                                            <option value="4">☆☆☆☆</option>
+                                            <option value="5">☆☆☆☆☆</option>
+                                        </select></td>
+                                        <td align="center" valign="middle">{{product.stock}}</td>
+                                        <td align="center" valign="middle"><select  ng-model="product.onshelf" disabled class="select_yc">
+                                            <option value="1">是</option>
+                                            <option value="0">否</option>
+                                        </select></td>
+                                        <td align="center" valign="middle"><a href="#updateProduct"  ng-click="GetProduct(product.id);" data-toggle="modal" class="btn-xs">修改</a>
+                                            <a class="btn-xs" href="#details"  data-toggle="modal" ng-click="GetProduct(product.id)">详情</a>
+                                            <a class="btn-xs" ui-sref="index.Product.evaluate({id:{{product.id}}})" href="javascript:void(0)">评价</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <div class="pull-right">
+                                    <ul class="pagination" ng-show="totalPage>1">
+                                        <li ng-class="{true:'active'}[currentPage==1]"><a href="javascript:void(0)" ng-click="currentPage=1;load()">首页</a></li>
+                                        <li ng-class="{true:'disabled'}[currentPage==1]"><a href="javascript:void(0);" ng-click="prev()">上一页</a></li>
+                                        <li ng-repeat="page in pages"><a href="javascript:void(0);" ng-click="loadPage(page)">{{ page }}</a></li>
+                                        <li ng-class="{true:'disabled'}[currentPage==totalPage]"><a href="javascript:void(0);" ng-click="next()">下一页</a></li>
+                                        <li ng-class="{true:'active'}[currentPage==totalPage]"><a href="javascript:void(0)" ng-click="currentPage=totalPage;load()">末页</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td width="2%">&nbsp;</td>
+                        </tr>
+                        <!-- 添加栏目结束 -->
+                    </table>
+                </td>
+                <td background="../Images/mail_right_bg.gif">&nbsp;</td>
+            </tr>
+            <!-- 底部部分 -->
+            <tr>
+                <td valign="bottom" background="../Images/mail_left_bg.gif">
+                    <img src="../Images/buttom_left.gif" width="17" height="17" />
+                </td>
+                <td background="../Images/buttom_bgs.gif">
+                    <img src="../Images/buttom_bgs.gif" width="17" height="17">
+                </td>
+                <td valign="bottom" background="../Images/mail_right_bg.gif">
+                    <img src="../Images/buttom_right.gif" width="16" height="17" />
+                </td>
+            </tr>
+        </table>
+        <div class="modal fade" id="updateProduct" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true" ng-click="GetVenue()">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="updatevipCustome">
+                            修改信息
+                        </h4>
+
+
+                        </td>
+                        <div class="modal-body">
+                            <div>
+                                <form style="padding-left: 40px;">
+                                    <table class="text-center" style="margin: 0px;">
+                                        <tr>
+                                            <td  class="text-right"><span>名称：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.name"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>描述：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.des"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>推荐等级：</span></td>
+                                            <td><select class="input-sm form-control" ng-model="product.recommend">
+                                                <option value="1">☆</option>
+                                                <option value="2">☆☆</option>
+                                                <option value="3">☆☆☆</option>
+                                                <option value="4">☆☆☆☆</option>
+                                                <option value="5">☆☆☆☆☆</option>
+                                            </select></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right"><span>老价格：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.originalPrice"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>新价格：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.price"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>数量：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.stock"></td>
+
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right"><span>活动开始日期：</span></td>
+                                            <td><input type="date" class="input-sm form-control" ng-model="product.begintime"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>活动到期日期：</span></td>
+                                            <td><input type="date" class="input-sm form-control" ng-model="product.endtime"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>上架：</span></td>
+                                            <td><select class="input-sm form-control" ng-model="product.onShelf">
+                                                <option value="1">是</option>
+                                                <option value="0">否</option>
+                                            </select></td>
+                                            <td width="30"></td>
+                                            <td><a class="btn btn-primary btn-md" ng-click="UpdateProduct(product.id)">提交</a></td>
+                                        </tr>
+                                    </table>
+
+                                    <table class="text-center" style="margin: 50px 0px;">
+                                        <tr>
+                                            <!--<td  class="text-right" ><span>商品id：</span></td>
+                                            <td ><input type="text" class="input-sm form-control" ng-model="product.id" readonly></td>-->
+                                            <!--<td width="30"></td>-->
+                                            <td class="text-right"><span>属性名称1：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.propertyname1"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>属性列表1：</span></td>
+                                            <td colspan="4"><input type="text" class="input-sm form-control" ng-model="product.propertyitem1"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class="text-right"><span>属性名称2：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.propertyname2"></td>
+                                            <td width="30"></td>
+                                            <td class="text-right"><span>属性列表2：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.propertyitem2"></td>
+                                            <td width="30"></td>
+                                            <td><a class="btn btn-primary btn-md" ng-click="UpdateProperty(product.id)">提交</a></td>
+                                        </tr>
+                                    </table>
+
+                                    <table class="text-center" style="margin: 50px 0px;">
+                                        <tr style="display: none;">
+                                            <td  class="text-right"><span>商品id：</span></td>
+                                            <td><input type="text" class="input-sm form-control" ng-model="product.id" readonly></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-right"><span>选择场馆：</span></td>
+                                            <td>
+                                                <select multiple size="5" name="list1" id="list1" style="width:200px">
+                                                    <option ng-repeat="venuea in Venue" value="{{venuea.Id}}">{{venuea.Name}}</option>
+                                                </select>
+                                            </td>
+                                            <td valign="bottom" width="100">
+                                                <input type="button" value="   >  " ng-click="move($event,1)" name="B1"><br/>
+                                                <input type="button" value="   <  " ng-click="move($event,2)" name="B2"><br/>
+                                                <input type="button" value="  >>  " ng-click="moveall($event,1)" name="B3"><br/>
+                                                <input type="button" value="  <<  " ng-click="moveall($event,2)" name="B4"><br/>
+                                            </td>
+                                            <td class="text-right"><span>可售场馆：</span></td>
+                                            <td>
+                                                <select multiple size="5" name="list2" id="list2" style="width:200px"  readonly>
+                                                    <option ng-repeat="venue in product.facilityids" value="{{venue.fid}}">{{venue.fname}}</option>
+                                                </select></td>
+                                            <td width="30"></td>
+                                            <td><a class="btn btn-primary btn-md" ng-click="UpdateVenue(product.id)">提交</a></td>
+                                        </tr>
+                                    </table>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                    data-dismiss="modal">关闭
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="details" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close"
+                                data-dismiss="modal" aria-hidden="true">
+                            &times;
+                        </button>
+                        <h4 class="modal-title" id="ImpClient">
+                            商品详情
+                        </h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div>
+                            <form>
+                                <table class="text-center" style="margin: 0px auto;">
+                                    <tr>
+                                        <td  class="text-right"><span>名称：</span></td>
+                                        <td><input type="text" class="input-sm form-control" ng-model="product.name" readonly></td>
+                                        <td width="30"></td>
+                                        <td class="text-right"><span>上架：</span></td>
+                                        <td><select class="form-control select_yc" ng-model="product.onShelf" readonly disabled>
+                                            <option value="1">是</option>
+                                            <option value="0">否</option>
+                                        </select></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right"><span>推荐等级：</span></td>
+                                        <td><select class="form-control select_yc" ng-model="product.recommend" readonly disabled>
+                                            <option value="1">☆</option>
+                                            <option value="2">☆☆</option>
+                                            <option value="3">☆☆☆</option>
+                                            <option value="4">☆☆☆☆</option>
+                                            <option value="5">☆☆☆☆☆</option>
+                                        </select></td>
+                                        <td></td>
+                                        <td class="text-right"><span>数量：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.stock" readonly></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td class="text-right"><span>老价格：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.originalPrice" readonly></td>
+                                        <td></td>
+                                        <td class="text-right"><span>新价格：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.price" readonly></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right"><span>活动开始日期：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.begintime" readonly></td>
+                                        <td></td>
+                                        <td class="text-right"><span>活动到期日期：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.endtime" readonly></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right"><span>商品属性名称：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyname1" readonly></td>
+                                        <td></td>
+                                        <td class="text-right"><span>商品属性详情：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyitem1" readonly></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right"><span>商品属性名称2：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyname2" readonly></td>
+                                        <td></td>
+                                        <td class="text-right"><span>商品属性详情2：</span></td>
+                                        <td><input type="text" class="input-sm form-control"  ng-model="product.propertyitem2" readonly></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-right"><span>描述：</span></td>
+                                        <td><textarea rows="4" class="form-control"  ng-model="product.des" readonly></textarea></td>
+                                        <td></td>
+                                        <td class="text-right"><span>可售卖场馆：</span></td>
+                                        <td><select multiple size="5" name="list1" style="width:200px"  readonly>
+                                            <option ng-repeat="venue in product.facilityids" value="{{venue.fid}}">{{venue.fname}}</option>
+                                        </select></td>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default"  data-dismiss="modal">关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">
+                            确认
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>

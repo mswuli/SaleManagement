@@ -1,0 +1,20 @@
+{
+  "name": "mCoach",
+  "version": "0.0.1",
+
+  "main": "app.js",
+  "dependencies": {
+
+    "express": "^4.10.4"
+
+  },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "yangjing (572157416@qq.com)",
+  "license": "MIT"
+}

@@ -1,0 +1,57 @@
+//Angular主文件
+//angular.module('Sale',['ngRoute','ngMessages','angularMoment','ui.router'])
+//.run(function($window, $rootScope, $http, $location){
+//	console.log("这里是run方法");
+//	//$window.moment.lang('zh-cn');
+//});
+'use strict';
+require.config({
+    baseUrl:"Js",
+    paths:{
+        jquery:'jslib/jquery/dist/jquery-1.11.3.min',
+        angular:'jslib/angular/angular.min',
+        bootStrap:'jslib/bootstrap/dist/js/bootstrap',
+        angularRoute:'jslib/angular-route/angular-route',
+        angularUiRoute:'jslib/angular-ui-router/release/angular-ui-router',
+        moment:'jslib/moment/moment',
+        angularMoment:'jslib/angular-moment/angular-moment',
+        angularMessages:'jslib/angular-messages/angular-messages',
+        zhCh:'jslib/moment/lang/zh-cn',
+        echarts:'jslib/echarts/build/dist/echarts-all',
+        cookie:'jslib/angular-cookie/angular-cookie',
+        /*line:'jslib/echarts/build/dist/chart/line',*/
+        ToolService:'services/Tool'
+    },
+    shim:{
+        bootStrap:['jquery'],
+        angular:{
+            exports:'angular'
+        },
+        angularRoute:['angular'],
+        angularUiRoute:['angular'],
+        moment:['angular'],
+        angularMoment:['angular'],
+        angularMessages:['angular'],
+        cookie:['angular'],
+        zhCh:['angular']
+    },
+    priority:['angular'],
+    urlArgs:'v=1.1'
+});
+require([
+    'angular',
+    'jquery',
+    'bootStrap',
+    'angularRoute',
+    'angularUiRoute',
+    'moment',
+    'angularMoment',
+    'angularMessages',
+    'zhCh',
+    'cookie',
+    'ToolService',
+    'Sale',
+    'main'
+],function(angular){
+    angular.bootstrap($(document).get(0),['Sale']);
+});
